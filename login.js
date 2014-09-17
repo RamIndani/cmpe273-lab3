@@ -39,7 +39,6 @@ Login.prototype.login = function(_name, _email) {
 Login.prototype.refreshSession = function(_sessionId) {
   var newSessionId = new Date().getTime();
   var sessionData = this.sessionMap[_sessionId];
-  this.sessionMap[_sessionId] = null;
   delete this.sessionMap[_sessionId];
   this.sessionMap[newSessionId] = sessionData;
   return newSessionId;
@@ -50,7 +49,7 @@ Login.prototype.refreshSession = function(_sessionId) {
  */ 
 Login.prototype.logout = function(_sessionId) {
 	console.log('logout::' + _sessionId);
-   this.sessionMap[_sessionId] = null;
+   delete this.sessionMap[_sessionId];
    /*
 	* TODO: Remove the given sessionId from the sessionMap
 	*/
