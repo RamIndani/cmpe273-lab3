@@ -73,7 +73,7 @@ function put(request, response) {
         var newSessionId = login.refreshSession(cookies['session_id']);
         response.setHeader('Set-Cookie','session_id=' + newSessionId);
 	response.end("Re-freshed session id "+newSessionId+"\n");
-       ]
+       }
        else {
         response.end("Login first");
        }
